@@ -23,6 +23,15 @@ public class WeatherReading {
   private int DewPoint;//unit: Celsius
   private int WindSpeed;//unit: Miles/Hour
   private int TotalRain;//unit: millimeter
+  private static final double C1 = -8.78469475556;
+  private static final double C2 = 1.61139411;
+  private static final double C3 = 2.33854883889;
+  private static final double C4 = -0.14611605;
+  private static final double C5 = -0.012308094;
+  private static final double C6 = -0.016428277778;
+  private static final double C7 = 0.002211732;
+  private static final double C8 = 0.00072546;
+  private static final double C9 = -0.000003582;
 
   public WeatherReading(int temperature, int dewPoint, int windSpeed, int totalRain) {
     Temperature = temperature;
@@ -61,17 +70,17 @@ public class WeatherReading {
     int R = getRelativeHumidity();
     double T2 = Math.pow(getTemperature(),2);
     double R2 = Math.pow(getRelativeHumidity(),2);
-    return -8.78469475556 + (1.61139411 * T) + (2.33854883889 * R)
-            + (-0.14611605 * T * R) + (-0.012308094 * T2)
-            + (-0.0164248277778 * R2) + (0.002211732 * T2 * R)
-            +  (0.00072546 * T * R2) + (-0.000003582 * T2 * R2);
+    return (C1 + (C2 * T) + (C3 * R)
+            + (C4 * T * R) + (C5 * T2)
+            + (C6 * R2) + (C7 * T2 * R)
+            +  (C8 * T * R2) + (C9 * T2 * R2));
   }
   public double getWindChill(){
-    double T = 32 + (1.8 * getTemperature());
+    double t = 32 + (1.8 * getTemperature());
 
     int v = getWindSpeed();
 
-    return 35.74 + (0.6215 * T) - (35.75 * Math.pow(v, 0.16) )+ (0.4275 * T * Math.pow(v, 0.16));
+    return 35.74 + (0.6215 * t) - (35.75 * Math.pow(v, 0.16) )+ (0.4275 * t * Math.pow(v, 0.16));
   }
 
   @Override

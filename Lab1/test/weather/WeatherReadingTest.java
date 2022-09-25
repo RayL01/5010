@@ -13,37 +13,37 @@ public class WeatherReadingTest {
 
   @Test
   public void getTemperature() {
-    System.out.println(weatherReading.getTemperature());
+    System.out.println("Temperature:" + weatherReading.getTemperature());
   }
 
   @Test
   public void getDewPoint() {
-    System.out.println(weatherReading.getDewPoint());
+    System.out.println("DewPoint:"+ weatherReading.getDewPoint());
   }
 
   @Test
   public void getWindSpeed() {
-    System.out.println(weatherReading.getWindSpeed());
+    System.out.println("WindSpeed:" + weatherReading.getWindSpeed());
   }
 
   @Test
   public void getTotalRain() {
-    System.out.println(weatherReading.getTotalRain());
+    System.out.println("TotalRain:" + weatherReading.getTotalRain());
   }
 
   @Test
   public void getRelativeHumidity() {
-    System.out.println(weatherReading.getRelativeHumidity());
+    System.out.println("RelativeHumidity:" + weatherReading.getRelativeHumidity());
   }
 
   @Test
   public void getHeatIndex() {
-    System.out.println(weatherReading.getHeatIndex());
+    System.out.println("HeatIndex:" + weatherReading.getHeatIndex());
   }
 
   @Test
   public void getWindChill() {
-    System.out.println(weatherReading.getWindChill());
+    System.out.println("WindChill:" + weatherReading.getWindChill());
   }
 
   @Test
