@@ -1,4 +1,4 @@
-package Weather;
+package weather;
 //Design and implement a class called WeatherReading that represents a single reading of a weather station in a Stevenson Station.
 // Your constructor takes four parameters: the air temperature in Celsius,
 // the dew point temperature in Celsius which cannot be greater than the air temperature,
@@ -68,9 +68,10 @@ public class WeatherReading {
   }
   public double getWindChill(){
     double T = 32 + (1.8 * getTemperature());
+
     int v = getWindSpeed();
 
-    return 35.74 + (0.6215 * T) - (35.75 * Math.pow(v, 0.16) + 0.4275 * T * Math.pow(v, 0.16));
+    return 35.74 + (0.6215 * T) - (35.75 * Math.pow(v, 0.16) )+ (0.4275 * T * Math.pow(v, 0.16));
   }
 
   @Override

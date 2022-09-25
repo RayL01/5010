@@ -1,9 +1,7 @@
-package Weather;
+package weather;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class WeatherReadingTest {
   private WeatherReading weatherReading;
