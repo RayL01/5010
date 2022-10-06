@@ -44,7 +44,7 @@ public class WeatherReadingTest {
   public void test(){
     return;
   }
-
+//
   @Test
   public void getWindChill() {
     System.out.println("WindChill:" + weatherReading.getWindChill());
