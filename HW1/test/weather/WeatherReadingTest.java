@@ -40,6 +40,10 @@ public class WeatherReadingTest {
   public void getHeatIndex() {
     System.out.println("HeatIndex:" + weatherReading.getHeatIndex());
   }
+  @Test
+  public void test(){
+    return;
+  }
 
   @Test
   public void getWindChill() {
