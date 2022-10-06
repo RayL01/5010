@@ -1,0 +1,9 @@
+public enum CLASSIFICATION {
+    BIRDS_OF_PREY,
+    FLIGHTLESS_BIRDS,
+    OWLS,
+    PARROTS,
+    PIGEONS,
+    SHOREBIRDS,
+    WATERFOWL
+}

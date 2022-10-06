@@ -1,0 +1,16 @@
+public enum FOODS {
+
+    BERRIES,
+    SEEDS,
+    FRUIT,
+    INSECTS,
+    OTHERBIRDS,
+    EGGS,
+    SMALLMAMMALS,
+    FISH,
+    BUDS,
+    LARVAE,
+    AQUATICINVERTEBRATES,
+    NUTS,
+    VEGETATION
+}

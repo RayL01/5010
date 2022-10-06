@@ -1,4 +1,7 @@
 package weather;
+
+import java.util.ArrayList;
+
 //Design and implement a class called WeatherReading that represents a single reading of a weather station in a Stevenson Station.
 // Your constructor takes four parameters: the air temperature in Celsius,
 // the dew point temperature in Celsius which cannot be greater than the air temperature,
@@ -48,6 +51,7 @@ public class WeatherReading {
   }
 
   public int getTemperature() {
+
     return Temperature;
   }
 
