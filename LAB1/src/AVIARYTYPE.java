@@ -1,6 +1,0 @@
-public enum AVIARYTYPE {
-    FLIGHTLESS_BIRDS,
-    BIRDS_OF_PREY,
-    WATERFOWL,
-    OTHER
-}
