@@ -25,28 +25,33 @@ public class AutomaticTransmission implements Transmission{
    * calculate the gear of the car according to the current speed
    */
   public void calculateCurrentGear(){
-    if(speed < speedThreshold[0]){
+    if(speed == 0){
       setGear(0);
-    }else if(speed < speedThreshold[1]){
+    }else if(speed < speedThreshold[0]){
       setGear(1);
-    }else if(speed < speedThreshold[2]){
+    }else if(speed < speedThreshold[1]){
       setGear(2);
-    }else if(speed < speedThreshold[3]){
+    }else if(speed < speedThreshold[2]){
       setGear(3);
-    }else if(speed < speedThreshold[4]){
+    }else if(speed < speedThreshold[3]){
       setGear(4);
-    }else{
+    }else if(speed < speedThreshold[4]){
       setGear(5);
+    }else{
+      setGear(6);
     }
   }
+
   public int getGear() {
     return gear;
   }
-  private void setGear(int gear){
-    this.gear = gear;
-  }
+
   public int getSpeed() {
     return speed;
+  }
+
+  public void setGear(int gear){
+    this.gear = gear;
   }
   public void setSpeed(int speed){
     this.speed = speed;
@@ -70,10 +75,12 @@ public class AutomaticTransmission implements Transmission{
 
   @Override
   public String toString() {
-    return "Transmission   " +
-            "(speed = " + getSpeed() +
+    return "Transmission (" +
+            "speed = " + getSpeed() +
             ", gear = " + getGear() +
-            "\n";
+            ")";
+    //Transmission [(speed = 0, gear = 0)]
+    //Transmission (speed = 45, gear = 3)
   }
 
 

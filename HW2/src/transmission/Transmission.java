@@ -12,5 +12,10 @@ public interface Transmission {
    * @return
    */
   Transmission decreaseSpeed();
+  public int getGear();
+  public int getSpeed();
+  public void setGear(int gear);
+  public void setSpeed(int speed);
+
 
 }

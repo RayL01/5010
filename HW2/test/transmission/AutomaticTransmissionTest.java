@@ -13,8 +13,9 @@ public class AutomaticTransmissionTest {
   }
   @Test
   public void testIncreaseSpeed(){
+    System.out.println(transmission);
     for (int i = 0; i < 30; i++) {
-      System.out.println(transmission);
+
       Transmission transmission1 = transmission.increaseSpeed();
       System.out.println(transmission1);
     }
@@ -25,15 +26,17 @@ public class AutomaticTransmissionTest {
      * In order to decrease speed, you have to increase speed first
      */
     System.out.println("Engine started, now speeding");
+    System.out.println(transmission);
     for (int i = 0; i < 30; i++) {
-      System.out.println(transmission);
+
       Transmission transmission1 = transmission.increaseSpeed();
       System.out.println(transmission1);
     }
 
     System.out.println("Now we start to decrease speed");
+    System.out.println(transmission);
     for (int i = 0; i < 30; i++) {
-      System.out.println(transmission);
+
       Transmission transmission1 = transmission.decreaseSpeed();
       System.out.println(transmission1);
     }
