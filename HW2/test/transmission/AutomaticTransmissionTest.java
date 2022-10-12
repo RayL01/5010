@@ -1,7 +1,11 @@
+package transmission;
+
 import org.junit.Before;
 import org.junit.Test;
 
-public class TransmissionTest {
+import static org.junit.Assert.*;
+
+public class AutomaticTransmissionTest {
   private Transmission transmission;
   @Before
   public void setup(){

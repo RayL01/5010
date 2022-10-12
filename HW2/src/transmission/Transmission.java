@@ -1,3 +1,5 @@
+package transmission;
+
 public interface Transmission {
   /**
    * A method called increaseSpeed which returns a Transmission object with speed increased by 2 and the appropriate gear.
