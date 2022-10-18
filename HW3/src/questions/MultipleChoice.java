@@ -126,10 +126,26 @@ public class MultipleChoice implements Question{
   }
 
   @Override
+  public String toString() {
+    return "MultipleChoice{" +
+            "text='" + text + '\'' +
+            ", answer=" + answer +
+            ", option1='" + option1 + '\'' +
+            ", option2='" + option2 + '\'' +
+            ", option3='" + option3 + '\'' +
+            ", option4='" + option4 + '\'' +
+            ", option5='" + option5 + '\'' +
+            ", option6='" + option6 + '\'' +
+            ", option7='" + option7 + '\'' +
+            ", option8='" + option8 + '\'' +
+            "}";
+  }
+
+  @Override
   public int compareTo(Object o) {
     if(o instanceof Question){
       Question question = (Question) o;
-      return Integer.compare(this.getOrder(), question.getOrder());
+      return Integer.compare(this.getOrder(),question.getOrder());
     }
     throw new IllegalStateException("the type of the list should be Question");
   }

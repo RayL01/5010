@@ -13,4 +13,7 @@ public class QuestionBank {
   public Question pullupQuestion(){
     return questionnaire.get(0);
   }
+  public void print(){
+    System.out.println(questionnaire);
+  }
 }

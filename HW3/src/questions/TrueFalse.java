@@ -50,5 +50,13 @@ public class TrueFalse implements Question {
     }
     throw new IllegalStateException("the type of the list should be Question");
   }
+
+  @Override
+  public String toString() {
+    return "TrueFalse{" +
+            "text='" + text + '\'' +
+            ", answer=" + answer +
+            '}';
+  }
 }
 

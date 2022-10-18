@@ -44,4 +44,11 @@ public class Likert implements Question{
     }
     throw new IllegalStateException("the type of the list should be Question");
   }
+
+  @Override
+  public String toString() {
+    return "Likert{" +
+            "text='" + text + '\'' +
+           "}";
+  }
 }
