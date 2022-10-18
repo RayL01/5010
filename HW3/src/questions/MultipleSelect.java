@@ -65,10 +65,11 @@ public class MultipleSelect implements Question{
 
     //examine whether the answers are right
     Iterator<Integer> iterator;
-    while ((iterator = this.answer.iterator()).hasNext()) {
+    iterator = this.answer.iterator();
+    while (iterator.hasNext()) {
       int ans = iterator.next();
-      if (ans < 1 || ans > 3) {
-        throw new IllegalArgumentException("The answer should be between 1 and 3");
+      if (ans < 1 || ans > 4) {
+        throw new IllegalArgumentException("The answer should be between 1 and 4");
       }
     }
   }
@@ -89,8 +90,8 @@ public class MultipleSelect implements Question{
     Iterator<Integer> iterator;
     while ((iterator = this.answer.iterator()).hasNext()) {
       int ans = iterator.next();
-      if (ans < 1 || ans > 3) {
-        throw new IllegalArgumentException("The answer should be between 1 and 3");
+      if (ans < 1 || ans > 5) {
+        throw new IllegalArgumentException("The answer should be between 1 and 5");
       }
     }
   }
@@ -112,8 +113,8 @@ public class MultipleSelect implements Question{
     Iterator<Integer> iterator;
     while ((iterator = this.answer.iterator()).hasNext()) {
       int ans = iterator.next();
-      if (ans < 1 || ans > 3) {
-        throw new IllegalArgumentException("The answer should be between 1 and 3");
+      if (ans < 1 || ans > 6) {
+        throw new IllegalArgumentException("The answer should be between 1 and 6");
       }
     }
   }
@@ -136,8 +137,8 @@ public class MultipleSelect implements Question{
     Iterator<Integer> iterator;
     while ((iterator = this.answer.iterator()).hasNext()) {
       int ans = iterator.next();
-      if (ans < 1 || ans > 3) {
-        throw new IllegalArgumentException("The answer should be between 1 and 3");
+      if (ans < 1 || ans > 7) {
+        throw new IllegalArgumentException("The answer should be between 1 and 7");
       }
     }
   }
@@ -161,8 +162,8 @@ public class MultipleSelect implements Question{
     Iterator<Integer> iterator;
     while ((iterator = this.answer.iterator()).hasNext()) {
       int ans = iterator.next();
-      if (ans < 1 || ans > 3) {
-        throw new IllegalArgumentException("The answer should be between 1 and 3");
+      if (ans < 1 || ans > 8) {
+        throw new IllegalArgumentException("The answer should be between 1 and 8");
       }
     }
   }
@@ -190,9 +191,15 @@ public class MultipleSelect implements Question{
   public int compareTo(Object o) {
     if(o instanceof Question){
       Question question = (Question) o;
-      return Integer.compare(this.getOrder(),question.getOrder());
+      if(this.getOrder() > question.getOrder()){
+        return 1;
+      }else if(this.getOrder() == question.getOrder()){
+        return this.getText().compareTo(question.getText());
+      }else{
+        return -1;
+      }
     }
-    throw new IllegalStateException("the type of the list should be Question");
+    return 0;
   }
 
   @Override

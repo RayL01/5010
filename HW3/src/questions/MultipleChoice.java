@@ -27,9 +27,7 @@ public class MultipleChoice implements Question{
     this.option3 = option3;
     //Examine whether the answer is within the options
     this.answer = Integer.parseInt(answer);
-    if(this.answer<3 || this.answer >8){
-      throw new IllegalArgumentException("The answer should be between 3 and 8");
-    }
+
   }
   public MultipleChoice(String text, String answer, String option1, String option2, String option3, String option4){
     this.text = text;
@@ -40,9 +38,7 @@ public class MultipleChoice implements Question{
     this.option4 = option4;
     //Examine whether the answer is within the options
     this.answer = Integer.parseInt(answer);
-    if(this.answer<3 || this.answer >8){
-      throw new IllegalArgumentException("The answer should be between 3 and 8");
-    }
+
   }
   public MultipleChoice(String text, String answer, String option1, String option2, String option3, String option4, String option5){
     this.text = text;
@@ -54,9 +50,7 @@ public class MultipleChoice implements Question{
     this.option5 = option5;
     //Examine whether the answer is within the options
     this.answer = Integer.parseInt(answer);
-    if(this.answer<3 || this.answer >8){
-      throw new IllegalArgumentException("The answer should be between 3 and 8");
-    }
+
   }
   public MultipleChoice(String text, String answer, String option1, String option2, String option3, String option4, String option5, String option6){
     this.text = text;
@@ -69,9 +63,7 @@ public class MultipleChoice implements Question{
     this.option6 = option6;
     //Examine whether the answer is within the options
     this.answer = Integer.parseInt(answer);
-    if(this.answer<3 || this.answer >8){
-      throw new IllegalArgumentException("The answer should be between 3 and 8");
-    }
+
   }
   public MultipleChoice(String text, String answer, String option1, String option2, String option3, String option4, String option5, String option6, String option7){
     this.text = text;
@@ -85,9 +77,7 @@ public class MultipleChoice implements Question{
     this.option7 = option7;
     //Examine whether the answer is within the options
     this.answer = Integer.parseInt(answer);
-    if(this.answer<3 || this.answer >8){
-      throw new IllegalArgumentException("The answer should be between 3 and 8");
-    }
+
   }
   public MultipleChoice(String text, String answer, String option1, String option2, String option3, String option4, String option5, String option6, String option7, String option8){
     this.text = text;
@@ -102,9 +92,7 @@ public class MultipleChoice implements Question{
     this.option8 = option8;
     //Examine whether the answer is within the options
     this.answer = Integer.parseInt(answer);
-    if(this.answer<3 || this.answer >8){
-      throw new IllegalArgumentException("The answer should be between 3 and 8");
-    }
+
   }
 
   @Override
@@ -145,9 +133,15 @@ public class MultipleChoice implements Question{
   public int compareTo(Object o) {
     if(o instanceof Question){
       Question question = (Question) o;
-      return Integer.compare(this.getOrder(),question.getOrder());
+      if(this.getOrder() > question.getOrder()){
+        return 1;
+      }else if(this.getOrder() == question.getOrder()){
+        return this.getText().compareTo(question.getText());
+      }else{
+        return -1;
+      }
     }
-    throw new IllegalStateException("the type of the list should be Question");
+    return 0;
   }
 }
 

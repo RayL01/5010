@@ -1,6 +1,5 @@
 package questions;
 
-import org.testng.annotations.Test;
 
 /**
  * True/False: can be answered in one of two ways: true or false.
@@ -46,9 +45,15 @@ public class TrueFalse implements Question {
   public int compareTo(Object o) {
     if(o instanceof Question){
       Question question = (Question) o;
-      return Integer.compare(this.getOrder(), question.getOrder());
+      if(this.getOrder() > question.getOrder()){
+        return 1;
+      }else if(this.getOrder() == question.getOrder()){
+        return this.getText().compareTo(question.getText());
+      }else{
+        return -1;
+      }
     }
-    throw new IllegalStateException("the type of the list should be Question");
+    return 0;
   }
 
   @Override
