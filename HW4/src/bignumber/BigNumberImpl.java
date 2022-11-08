@@ -132,11 +132,15 @@ public class BigNumberImpl implements BigNumber {
   }
 
   @Override
-  public int getDigitAt(int index) throws IllegalArgumentException {
+  public int getDigitAt(int index)  {
     // start from head
-    Node temp = head;
-    while (index-- != 0) {
 
+    Node temp = head;
+
+    while (index-- != 0) {
+      if (temp == null) {
+        throw new IllegalArgumentException("Carefull! Null pointer exception!");
+      }
       temp = temp.next;
     }
     return temp.val;
