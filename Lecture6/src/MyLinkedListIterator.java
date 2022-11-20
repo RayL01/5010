@@ -16,21 +16,7 @@ public class MyLinkedListIterator implements Iterator<Bird> {
     @Override
     public boolean hasNext() {
         if(tp2 == null){
-            while(tp.next != null){
-                if(tp.next.p == null){
-                    tp = tp.next;
-                }else{
-                    tp = tp.next;
-                    tp2 = tp.p;
-                    return true;
-                }
-            }
-            if(tp.p == null){
-                return false;
-            }else{
-                tp2 = tp.p;
-                return true;
-            }
+            return false;
         }else{
             return true;
         }
@@ -38,9 +24,22 @@ public class MyLinkedListIterator implements Iterator<Bird> {
 
     @Override
     public Bird next() {
-        int val = tp2.val;
-        tp2 = tp2.next;
-        return tp2;
+        Bird bird = tp2;
+        if(tp2.next == null){
+            if(tp.next == null){
+
+                tp2 = null;
+            }
+            while(tp.next != null){
+                tp = tp.next;
+                tp2 = tp.p;
+            }
+
+
+        }else{
+            tp2 = tp2.next;
+        }
+        return bird;
 
     }
 

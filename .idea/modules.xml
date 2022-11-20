@@ -7,9 +7,11 @@
       <module fileurl="file://$PROJECT_DIR$/HW2/HW2.iml" filepath="$PROJECT_DIR$/HW2/HW2.iml" />
       <module fileurl="file://$PROJECT_DIR$/HW3/HW3.iml" filepath="$PROJECT_DIR$/HW3/HW3.iml" />
       <module fileurl="file://$PROJECT_DIR$/HW4/HW4.iml" filepath="$PROJECT_DIR$/HW4/HW4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HW8/HW8.iml" filepath="$PROJECT_DIR$/HW8/HW8.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lab1/Lab1.iml" filepath="$PROJECT_DIR$/Lab1/Lab1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lab2/Lab2.iml" filepath="$PROJECT_DIR$/Lab2/Lab2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lecture6/Lecture6.iml" filepath="$PROJECT_DIR$/Lecture6/Lecture6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hw/hw.iml" filepath="$PROJECT_DIR$/hw/hw.iml" />
     </modules>
   </component>
 </project>

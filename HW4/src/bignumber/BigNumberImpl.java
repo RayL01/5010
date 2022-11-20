@@ -1,19 +1,10 @@
 package bignumber;
 
-/**
- * we will go from rear to head
- * like 32411, we will store like 1 -> 1 -> 4 -> 2 -> 3
- *
- * @author novo
- * @since 2021/10/7
- */
 public class BigNumberImpl implements BigNumber {
 
   public Node head;
 
-  /**
-   * default
-   */
+
   public BigNumberImpl() {
     head = new Node(0);
   }
@@ -169,10 +160,10 @@ public class BigNumberImpl implements BigNumber {
 
   @Override
   public BigNumber add(BigNumber number) {
-    // result node
+
     Node dummyHead = new Node(-1);
     Node resTemp = dummyHead;
-    // two temp nodes used to traverse
+
     Node temp1 = head;
     Node temp2 = number.getHead();
 
@@ -183,9 +174,9 @@ public class BigNumberImpl implements BigNumber {
      *  1 - > 2 -> 3 -> 4
      *  5 - > 4 -> 3 -> 2 -> 9 -> 9
      */
-    // next digit has carry or not
+
     boolean carry = false;
-    // start traversing
+
     while (temp1 != null && temp2 != null) {
       int currSum = temp1.val + temp2.val;
       // check carry
@@ -260,6 +251,8 @@ public class BigNumberImpl implements BigNumber {
       temp = temp.next;
       temp.prev = prev;
     }
+    // 2 -> 1 -> 1
+    // tmp  tmp.next
   }
 
   @Override
@@ -310,38 +303,6 @@ public class BigNumberImpl implements BigNumber {
       }
       return 0;
 
-
-
-
-
-//    Node i = head;
-//    Node j = number.getHead();
-//    while (i.next != null && j.next != null) {
-//      i = i.next;
-//      j = j.next;
-//    }
-//    // start moving backwards
-//    while (i != null && j != null && i.val == j.val) {
-//      i = i.prev;
-//      j = j.prev;
-//    }
-//    if (i != null && j != null) {
-//      // we've reached a node that two digits are different
-//      if (i.val < j.val) {
-//        return -1;
-//      } else {
-//        return 1;
-//      }
-//    } else if (i != null) {
-//      // j is null, that means i have more digits, definitely bigger than j
-//      return 1;
-//    } else if (j != null) {
-//      // reversed as above
-//      return -1;
-//    } else {
-//      // both are null, means they are same
-//      return 0;
-//    }
   }
 
   @Override

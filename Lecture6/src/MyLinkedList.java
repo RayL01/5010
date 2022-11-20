@@ -5,6 +5,5 @@ public interface MyLinkedList extends Iterable<Bird> {
     Bird get(int index);
     void remove(int index);
     int size();
-    MyLinkedList subList(Bird target);
-    MyLinkedList subList(Predicate<Bird> cond);
+
 }

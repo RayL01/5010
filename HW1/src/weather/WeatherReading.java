@@ -1,5 +1,8 @@
 package weather;
 
+import org.junit.jupiter.api.Test;
+
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 //Design and implement a class called WeatherReading that represents a single reading of a weather station in a Stevenson Station.
@@ -96,4 +99,10 @@ public class WeatherReading {
             ", v = " + WindSpeed +
             ", rain = " + TotalRain;
   }
+
+
+
+
+
+
 }

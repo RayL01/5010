@@ -19,17 +19,14 @@ public class MyLinkedListImpl implements MyLinkedList {
     public Iterator<Bird> iterator() {
         return new MyLinkedListIterator(this.head);
     }
-    Iterator iterator = lsit.iterater();
-    while(iterator.hasnext()){
-        Bird bird =  iterator.next();
-    }
+
     public int size() {
         Node tp = head;
         int counter = 0;
-
-        while(tp != null) {
-            counter++;
-            tp = tp.next;
+        Iterator<Bird> iterator = this.iterator();
+        while(iterator.hasNext()){
+            iterator.next();
+            counter ++;
         }
 
         return counter;
@@ -67,68 +64,69 @@ public class MyLinkedListImpl implements MyLinkedList {
 
     @Override
     public Bird get(int index) {
-        if (index >= this.size()) {
-            throw new ArrayIndexOutOfBoundsException();
-        }
-        Node tp = head;
-        int counter = 0;
-
-        while(tp != null) {
-            if (counter == index) {
-                // reached the target index
-                break;
-            }
-            counter++;
-            tp = tp.next;
-        }
-
-        return tp.val;
+        return null;
     }
 
     @Override
     public void remove(int index) {
-        if (index >= this.size()) {
-            throw new ArrayIndexOutOfBoundsException();
-        }
-        if (index == 0) {
-            // removing the first node
-            Bird val = head.val;
-            head = head.next;
-            return;
-        }
 
-        Node tp = head;
-        // prev is always updated to point to
-        // the one before `tp`.
-        Node prev = null;
-        int counter = 0;
-
-        while(tp != null) {
-            if (counter == index) {
-                // reached the target index
-                break;
-            }
-            counter++;
-            prev = tp;
-            tp = tp.next;
-        }
-
-        // when reaching out, tp is pointing to
-        // the node at `index`.
-        prev.next = tp.next;
     }
+
+    //@Override
+//    public Bird get(int index) {
+//        if (index >= this.size()) {
+//            throw new ArrayIndexOutOfBoundsException();
+//        }
+//        Node tp = head;
+//        int counter = 0;
+//
+//        while(tp != null) {
+//            if (counter == index) {
+//                // reached the target index
+//                break;
+//            }
+//            counter++;
+//            tp = tp.next;
+//        }
+//
+//        return tp.val;
+//    }
+
+//    @Override
+//    public void remove(int index) {
+//        if (index >= this.size()) {
+//            throw new ArrayIndexOutOfBoundsException();
+//        }
+//        if (index == 0) {
+//            // removing the first node
+//            Bird val = head.val;
+//            head = head.next;
+//            return;
+//        }
+//
+//        Node tp = head;
+//        // prev is always updated to point to
+//        // the one before `tp`.
+//        Node prev = null;
+//        int counter = 0;
+//
+//        while(tp != null) {
+//            if (counter == index) {
+//                // reached the target index
+//                break;
+//            }
+//            counter++;
+//            prev = tp;
+//            tp = tp.next;
+//        }
+//
+//        // when reaching out, tp is pointing to
+//        // the node at `index`.
+//        prev.next = tp.next;
+//    }
 
     // condition: elements >= 4
-    @Override
-    public MyLinkedList subList(Bird target) {
-        MyLinkedList newList = new MyLinkedListImpl();
-        for (int i = 0; i < this.size(); i++) {
-            if (this.get(i).compareTo(target) > 0) {
-                newList.add(this.get(i));
-            }
-        }
-        return newList;
-    }
+
 
     public MyLinkedList subList(Predicate<Bird> cond) {
         MyLinkedList newList = new MyLinkedListImpl();
@@ -164,26 +162,23 @@ public class MyLinkedListImpl implements MyLinkedList {
         list1.remove(0);
         System.out.println(list1.size());
         */
+        Bird bird1 = new Bird(2, null);
+        Bird bird3 = new Bird(1, null);
+        Node node1 = new Node(bird1);
+        Node node2 = new Node(null, node1);
+        Node node3 = new Node(bird3, node2);
 
-        //System.out.println(list.subList().size());
+        MyLinkedList list = new MyLinkedListImpl(node3);
+        Iterator<Bird> iterator = list.iterator();
+        while(iterator.hasNext()){
+            Bird bn = iterator.next();
+            if(bn != null){
+                System.out.println(bn.val);
+            }
 
-//        List<Node> list3 = new ArrayList<>();
-//        list3.add(new Node(3));
-        //Collections.sort(list3);
-
-        //List<Integer> myDS = new ArrayList<>();
-        //Set<Integer> myDS = new TreeSet<>();
-        MyLinkedList<Integer> myDS = new MyLinkedListImpl<>();
-        myDS.add(3);
-        myDS.add(5);
-//        for (int i = 0; i < myDS.size(); i++) {
-//            System.out.print(myDS.get(i));
-//        }
-        Iterator<Integer> it = myDS.iterator();
-        while(it.hasNext()) {
-            Integer i = it.next();
-            System.out.println(i);
         }
+
+
 
     }
 
