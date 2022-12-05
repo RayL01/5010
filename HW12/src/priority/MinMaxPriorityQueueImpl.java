@@ -1,6 +1,5 @@
 package priority;
 
-import org.testng.annotations.Test;
 
 import java.util.Map;
 import java.util.PriorityQueue;

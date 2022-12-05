@@ -25,7 +25,7 @@ public class MaxHeap<T> {
    * @param n is the index of the heap array list
    */
   private void siftUp(int n) {
-    while (n > 0 && heap.get(n).compareTo(heap.get((n - 1) / 2)) == 1) {//current node is bigger than its father
+    while (n > 0 && heap.get(n).compareTo(heap.get((n - 1) / 2)) == 1 || (n > 0 &&(heap.get(n).compareTo(heap.get((n - 1) / 2)) == 0 ) && (heap.get(n).time > heap.get((n - 1) / 2).time))){//current node is bigger than its father
       //swap Nodes
       swap(n, (n - 1) / 2);
 
@@ -46,12 +46,12 @@ public class MaxHeap<T> {
       int maxChild = (2 * n) + 1;
 
       // determine which child is bigger and we must determine whether the current node has a right child or not.
-      if (2 * n + 2 < heap.size() && heap.get(maxChild).compareTo(heap.get(maxChild + 1)) == -1) {
+      if ((2 * n + 2 < heap.size() && heap.get(maxChild).compareTo(heap.get(maxChild + 1)) == -1) || ((2 * n + 2 < heap.size() && (heap.get(maxChild).compareTo(heap.get(maxChild + 1)) == 0 ) && (heap.get(maxChild).time < heap.get(maxChild + 1 ).time)))) {
         maxChild += 1;
       }
 
       //Then we have to determine the relationship between the magnitude of two nodes.
-      if (heap.get(n).compareTo(heap.get(maxChild)) == -1) {// less than child
+      if ((heap.get(n).compareTo(heap.get(maxChild)) == -1) ||((heap.get(n).compareTo(heap.get(maxChild)) == 0 ) && (heap.get(n).time < heap.get(maxChild).time))) {// less than child
         //swap the elements
         swap(n, maxChild);
 
@@ -69,6 +69,9 @@ public class MaxHeap<T> {
    * @return
    */
   public T extractMax(){
+    if(heap.size() == 0){
+      throw new IllegalStateException("the size can not be 0 !");
+    }
     Node<T> max = heap.get(0);
     //swap the head and tail elements
     swap(0, heap.size() - 1);

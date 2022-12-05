@@ -25,7 +25,7 @@ public class MinHeap<T> {
    * @param n is the index of the heap array list
    */
   private void siftUp(int n) {
-    while (n > 0 && heap.get(n).compareTo(heap.get((n - 1) / 2)) == -1) {//current node is less than its father
+    while ((n > 0 && heap.get(n).compareTo(heap.get((n - 1) / 2)) == -1) || (n > 0 && (heap.get(n).compareTo(heap.get((n - 1) / 2)) == 0 ) && (heap.get(n).time > heap.get((n - 1) / 2).time))) {//current node is less than its father
       //swap Nodes
       swap(n, (n - 1) / 2);
 
@@ -41,16 +41,17 @@ public class MinHeap<T> {
   private void siftDown(int n) {
     //First, we have to make sure the current node does have children
     while (n <= (heap.size() - 2) / 2) {
+      if (heap.size() == 1) return;
       //First, we assume the left child is the smaller node
       int minChild = (2 * n) + 1;
 
       // determine which child is smaller and we must determine whether the current node has a right child or not.
-      if (2 * n + 2 < heap.size() && heap.get(minChild).compareTo(heap.get(minChild + 1)) == 1) {
+      if ((2 * n + 2 < heap.size() && heap.get(minChild).compareTo(heap.get(minChild + 1)) == 1) || ((2 * n + 2 < heap.size() && (heap.get(minChild).compareTo(heap.get(minChild + 1)) == 0 ) && (heap.get(minChild).time > heap.get(minChild + 1 ).time)))) {
         minChild += 1;
       }
 
       //Then we have to determine the relationship between the magnitude of two nodes.
-      if (heap.get(n).compareTo(heap.get(minChild)) == 1) {// Larger than child
+      if (heap.get(n).compareTo(heap.get(minChild)) == 1 ||((heap.get(n).compareTo(heap.get(minChild)) == 0 ) && (heap.get(n).time > heap.get(minChild).time))) {// Larger than child
         //swap the elements
         swap(n, minChild);
 
@@ -68,6 +69,9 @@ public class MinHeap<T> {
    * @return
    */
   public T extractMin(){
+    if(heap.size() == 0){
+      throw new IllegalStateException("the size can not be 0 !");
+    }
     Node<T> min = heap.get(0);
     //swap the head and tail elements
     swap(0, heap.size() - 1);

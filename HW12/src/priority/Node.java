@@ -12,10 +12,11 @@ public class Node<R> implements Comparable<Node<R>>{
     int priority;
     int time;
 
-    public Node(R item, int priority, int time) {
+    public Node(R item, int priority,int time) {
       this.item = item;
       this.priority = priority;
       this.time = time;
+
     }
 
 
@@ -25,18 +26,10 @@ public class Node<R> implements Comparable<Node<R>>{
         return 1;
       }else if(this.priority < o.priority){
         return -1;
-      }else{//priority is equal
-        if(this.priority == o.priority){
-          if(this.time > o.time){
-            return 1;
-          }else if (this.time < o.time){
-            return -1;
-          }else{
-            return 0;
-          }
-        }
+      }else{
+        return 0;
       }
-      throw new RuntimeException("error!");
+
     }
 
     public R getItem(){
